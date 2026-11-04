@@ -1,0 +1,38 @@
+
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache and compiled files
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# macOS system files
+.DS_Store
+
+# VS Code local settings
+.vscode/
+
+# Downloaded datasets and private webcam images
+data/raw/
+data/webcam_dev/
+data/webcam_test/
+
+# Trained model files and downloaded model assets
+models/*.pth
+models/*.pt
+assets/*.task
+
+# Temporary files
+*.log
+*.tmp
+
+# Local demo recordings
+demo/*.mp4
+demo/*.mov
