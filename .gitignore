@@ -1,5 +1,5 @@
 
-# Python virtual environment
+# Python virtual environments
 .venv/
 venv/
 
@@ -23,10 +23,16 @@ __pycache__/
 data/raw/
 data/webcam_dev/
 data/webcam_test/
+data/feedback/
 
-# Trained model files and downloaded model assets
+# Model checkpoints
 models/*.pth
 models/*.pt
+
+# Allow the final pretrained CNN
+!models/feedback_candidate.pth
+
+# Downloaded MediaPipe model asset
 assets/*.task
 
 # Temporary files

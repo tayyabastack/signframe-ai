@@ -7,7 +7,7 @@ from src.model import SignLanguageCNN
 from src.dataset import VALID_LABELS
 
 
-MODEL_PATH = Path("models/best_cnn.pth")
+MODEL_PATH = Path("models/feedback_candidate.pth")
 
 
 class SignPredictor:
@@ -42,7 +42,9 @@ class SignPredictor:
         self.model.load_state_dict(checkpoint)
         self.model.eval()
 
-        print(f"CNN loaded successfully: {MODEL_PATH}")
+        print(
+            f"SignFrame AI model loaded: {MODEL_PATH}"
+        )
         print(f"Inference device: {self.device}")
 
     def predict(self, image_tensor):
@@ -58,7 +60,8 @@ class SignPredictor:
             outputs = self.model(image_tensor)
 
             probabilities = torch.softmax(
-                outputs, dim=1
+                outputs,
+                dim=1
             )
 
             confidence, predicted_index = (
@@ -68,6 +71,8 @@ class SignPredictor:
         index = predicted_index.item()
         original_label = VALID_LABELS[index]
 
-        letter = chr(ord("A") + original_label)
+        letter = chr(
+            ord("A") + original_label
+        )
 
         return letter, confidence.item()
